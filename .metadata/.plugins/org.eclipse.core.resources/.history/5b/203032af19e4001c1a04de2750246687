@@ -1,0 +1,38 @@
+package app;
+
+public class main {
+
+	public static void main(String[] args) {
+		Runnable run= ()->{
+			System.out.println(
+					"I am running in thread"+Thread.currentThread().getName());
+		};
+		Thread t=new Thread(run);
+		t.start();
+		Runnable second_task=()->{
+			MillionNumber m=new MillionNumber(10l);
+			for(int i=0;i<10;i++) {
+				m.incrementValue();
+			}
+		};
+		Thread t2=new Thread(second_task);
+		t2.start();
+		
+	}
+		
+
+}
+class MillionNumber{
+	private long l;
+	public MillionNumber(long l) {
+		this.l=l;
+	}
+	
+	public long getValue() {
+		return l;
+	}
+	public void incrementValue() {
+		this.l=this.l+1;
+	}
+	
+}

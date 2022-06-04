@@ -1,0 +1,12 @@
+package app;
+
+public class main {
+
+	public static void main(String[] args) {
+		Runnable run= ()->{
+			System.out.println(
+					"I am running in thread"+Thread.currentThread().getName());
+		}
+	}
+
+}
